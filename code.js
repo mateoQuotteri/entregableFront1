@@ -69,10 +69,32 @@ function renderizarDatosUsuario() {
 
 function recorrerListadoYRenderizarTarjetas() {
   /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
+  let lista = document.getElementById("fila");
+listado.forEach(elemento => {
+  let caja = document.createElement("div")
+  caja.classList.add("caja")
+
+  let imagen = document.createElement("img")
+  imagen.src = elemento.imgUrl;
+
+  let p1 = document.createElement("p")
+  p1.classList.add("lenguajes")
+  p1.textContent = "Lenguaje: " + elemento.lenguajes
+
+
+  let p2 = document.createElement("p")
+  p2.classList.add("bimestre")
+  p2.textContent = "Bimestre: " + elemento.bimestre
   
+  
+  caja.appendChild(imagen)
+  caja.appendChild(p1)
+  caja.appendChild(p2)
 
 
-}
+  lista.appendChild(caja)
+});
+ 
 
 function alternarColorTema() {
   /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
@@ -80,6 +102,7 @@ function alternarColorTema() {
   
 
 
+}
 }
 
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
