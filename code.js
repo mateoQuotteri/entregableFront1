@@ -76,6 +76,7 @@ listado.forEach(elemento => {
 
   let imagen = document.createElement("img")
   imagen.src = elemento.imgUrl;
+  imagen.alt= elemento.lenguajes;
 
   let p1 = document.createElement("p")
   p1.classList.add("lenguajes")
@@ -96,14 +97,22 @@ listado.forEach(elemento => {
 });
  
 
+}
+
 function alternarColorTema() {
   /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
  
-  
+  document.getElementById("sitio").classList.toggle("dark")
 
 
-}
 }
 
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
+
+
+window.addEventListener("keypress", (e)=> {
+  if (e.key == "f") {
+    document.getElementById("sobre-mi").classList.remove("oculto")
+  }
+})
 
