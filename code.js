@@ -22,7 +22,6 @@ const listado = [{
     bimestre: "3er bimestre",
   },
 ];
-
 const profileBtn = document.querySelector("#completar-perfil");
 const materiasBtn = document.querySelector("#obtener-materias");
 const verMasBtn = document.querySelector("#ver-mas");
@@ -66,35 +65,43 @@ function renderizarDatosUsuario() {
 
 }
 
-
+let boolean = false;
 function recorrerListadoYRenderizarTarjetas() {
   /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
   let lista = document.getElementById("fila");
-listado.forEach(elemento => {
-  let caja = document.createElement("div")
-  caja.classList.add("caja")
 
-  let imagen = document.createElement("img")
-  imagen.src = elemento.imgUrl;
-  imagen.alt= elemento.lenguajes;
-
-  let p1 = document.createElement("p")
-  p1.classList.add("lenguajes")
-  p1.textContent = "Lenguaje: " + elemento.lenguajes
-
-
-  let p2 = document.createElement("p")
-  p2.classList.add("bimestre")
-  p2.textContent = "Bimestre: " + elemento.bimestre
+  if (boolean === false) {
+    
+    for (let i = 0; i < 3; i++) {
+      let caja = document.createElement("div")
+    caja.classList.add("caja")
+  
+    let imagen = document.createElement("img")
+    imagen.src = listado[i].imgUrl;
+    imagen.alt=  listado[i].lenguajes;
+  
+    let p1 = document.createElement("p")
+    p1.classList.add("lenguajes")
+    p1.textContent = "Lenguaje: " +  listado[i].lenguajes
   
   
-  caja.appendChild(imagen)
-  caja.appendChild(p1)
-  caja.appendChild(p2)
-
-
-  lista.appendChild(caja)
-});
+    let p2 = document.createElement("p")
+    p2.classList.add("bimestre")
+    p2.textContent = "Bimestre: " +  listado[i].bimestre
+    
+    
+    caja.appendChild(imagen)
+    caja.appendChild(p1)
+    caja.appendChild(p2)
+  
+  
+    lista.appendChild(caja)
+    
+    if (i === 2) {
+      boolean = true
+    }
+    }
+  }
  
 
 }
